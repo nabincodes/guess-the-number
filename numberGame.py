@@ -10,13 +10,13 @@ from random import randint
 
 def getInputNumberfromKeyboard():
     try:
-        x = int (raw_input("Enter any number to guess: "))
+        x = int (raw_input("Enter any number to guess: ")) # user input
         return x
     except:
         print "Please enter correctly"
     
     
-def getInputNumber():
+def getInputNumber(): #function to detect invalid input and asks to enter integer value
     numberInput = getInputNumberfromKeyboard()
     while numberInput is None:
         numberInput = getInputNumberfromKeyboard()
@@ -24,7 +24,7 @@ def getInputNumber():
 
 def randomNumberGame():
 
-    randomNumber = randint(10,99)
+    randomNumber = randint(10,99) #generates random number from 10 to 99
     n = 5
    
     x = getInputNumber()
@@ -32,20 +32,20 @@ def randomNumberGame():
     while(n>0):
         
         if(x==randomNumber):
-            print "You guessed it right"
+            print "You guessed it right" #output on successful guess
             break
         else:
             
             if (x > randomNumber):
-                print "Random Number is less than you entered"
+                print "Random Number is less than you entered" #output when guessed number is high
             else:
-                print "Random Number is high than you entered"
+                print "Random Number is high than you entered" #output when guessed number is less
             x = getInputNumber()
         n-=1
     if (n == 0):
-        print "You failed to guess. The random number was %d" %randomNumber
+        print "You failed to guess. The random number was %d" %randomNumber #output when failed to guess the numbers
     
-    playAgain = raw_input("Do you want to play again (y/n)? : ")
+    playAgain = raw_input("Do you want to play again (y/n)? : ") #Asking user if he/she wants to play again
     
     if(playAgain == 'y' or playAgain =='Y'):
         randomNumberGame()
